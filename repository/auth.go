@@ -36,6 +36,8 @@ func (a DefaultAuthRepository) Login(req dto.LoginAuthorRequest) (dto.LoginAutho
 	}
 	var username string
 	var response dto.LoginAuthorResponse
+	// Không fix cứng database name
+	// password cần đảm bảo mã hoá + salt
 	res, err := a.db.Query("select author.username from dungphung.author as author where author.username = ? and author.password = ?", author.Username, author.Password)
 	for res.Next() {
 		err = res.Scan(&username)
