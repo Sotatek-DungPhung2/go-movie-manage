@@ -14,6 +14,7 @@ import (
 var HmacSecret []byte
 
 func NewJWTToken(data string) (*jwt.Token, *string, *errs.AppError) {
+	// Nên setup 1 lần load file .env
 	err := godotenv.Load("./.env")
 	if err != nil {
 		fmt.Printf("Error loading .env file")

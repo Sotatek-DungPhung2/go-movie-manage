@@ -5,6 +5,7 @@ import "github.com/go-redis/redis"
 var RDB *redis.Client
 
 func setupClientRedis() *redis.Client {
+	// Nên setup options từ file env
 	rdb := redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
 		Password: "", // no password set

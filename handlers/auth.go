@@ -36,6 +36,7 @@ func (a AuthHandler) LoginAuthor() gin.HandlerFunc {
 			WriteError(ctx, e)
 			return
 		}
+		// Không nên hardcode status
 		if response.Status == "Success" {
 			WriteRespon(ctx, http.StatusOK, dto.LoginSuccess("author", response.Token))
 		} else {
